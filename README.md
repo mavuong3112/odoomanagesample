@@ -42,18 +42,30 @@ Add/create course when add new student....
 You may explore and familiarize yourself with it further after cloning the repository
 ---
 step 1: searching Language Center Management and active it 
+
 ![image](https://github.com/user-attachments/assets/55e49286-c43b-4291-b544-5134d1477873)
+
 ---
 step 2: choose Language Center Management to 
+
 ![image](https://github.com/user-attachments/assets/d16ec099-e4e7-4d60-a0a7-219641d16cbc)
+
 ---
+
 step 3: In here we can use it for add new student
+
 ![image](https://github.com/user-attachments/assets/cf65257c-3b91-44f0-a901-50ed95d3feea)
+
 ![image](https://github.com/user-attachments/assets/b94ae8b8-3db8-4a8d-aa1e-c80b3f443de0)
+
 ---
 step 4: create new course 
+
 ![image](https://github.com/user-attachments/assets/bca22727-a820-4549-800f-a60d9e07fca6)
+
 ---
+
 step 5: create new schedule 
+
 ![image](https://github.com/user-attachments/assets/72074c68-623a-440a-b9c0-3da2e8a89090)
 
