@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu dưới menu Polling gốc -->
+    <menuitem id="menu_polling_import_root" name="Nhập Excel" parent="polling.menu_polling" sequence="40"/>
+    <menuitem id="menu_polling_import_questions" name="Import câu hỏi" parent="menu_polling_import_root" action="action_import_question_wizard" sequence="10"/>
+</odoo>

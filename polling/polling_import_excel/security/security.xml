@@ -1,0 +1,6 @@
+<odoo>
+    <record id="group_poll_import_manager" model="res.groups">
+        <field name="name">Poll Import Manager</field>
+        <field name="implied_ids" eval="[(4, ref('polling.group_poll_admin'))]"/>
+    </record>
+</odoo>

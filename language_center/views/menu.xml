@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+    <!-- Menu chính -->
+    <menuitem id="menu_language_center_root" 
+              name="Trung tâm ngoại ngữ"
+              web_icon="web,static/img/icons/web.png"
+              sequence="10"/>
+
+    <!-- Các menu con ngang cấp -->
+    <menuitem id="menu_language_center_student" 
+              name="Học viên"
+              parent="menu_language_center_root"
+              action="action_language_center_student"
+              sequence="10"/>
+
+    <menuitem id="menu_language_center_course" 
+              name="Khóa học"
+              parent="menu_language_center_root"
+              action="action_language_center_course"
+              sequence="20"/>
+
+    <menuitem id="menu_language_center_class_schedule" 
+              name="Lịch học"
+              parent="menu_language_center_root"
+              action="action_language_center_class_schedule"
+              sequence="30"/>
+
+    <!-- Cấu hình -->
+    <menuitem id="menu_language_center_config" 
+              name="Cấu hình"
+              parent="menu_language_center_root"
+              sequence="100"/>
+</odoo>

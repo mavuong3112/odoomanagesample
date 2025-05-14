@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_language_center_class_schedule_form" model="ir.ui.view">
+        <field name="name">language.center.class.schedule.form</field>
+        <field name="model">language.center.class.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Lịch học">
+                <header>
+                    <button name="action_in_progress" string="Bắt đầu" type="object" class="oe_highlight" invisible="state != 'planned'"/>
+                    <button name="action_done" string="Hoàn thành" type="object" class="oe_highlight" invisible="state != 'in_progress'"/>
+                    <button name="action_cancel" string="Hủy" type="object" invisible="state not in ('planned', 'in_progress')"/>
+                    <button name="action_planned" string="Trở về kế hoạch" type="object" invisible="state != 'cancel'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="planned,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="course_id"/>
+                            <field name="date"/>
+                            <field name="start_time" widget="float_time"/>
+                            <field name="end_time" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="room"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Mô tả">
+                            <field name="description"/>
+                        </page>
+                        <page string="Điểm danh">
+                            <field name="attendance_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_language_center_class_schedule_list" model="ir.ui.view">
+        <field name="name">language.center.class.schedule.list</field>
+        <field name="model">language.center.class.schedule</field>
+        <field name="arch" type="xml">
+            <list string="Lịch học" decoration-info="state=='planned'" decoration-muted="state=='cancel'" decoration-success="state=='in_progress'" decoration-warning="state=='done'">
+                <field name="name"/>
+                <field name="course_id"/>
+                <field name="date"/>
+                <field name="start_time" widget="float_time"/>
+                <field name="end_time" widget="float_time"/>
+                <field name="room"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Calendar View -->
+    <record id="view_language_center_class_schedule_calendar" model="ir.ui.view">
+        <field name="name">language.center.class.schedule.calendar</field>
+        <field name="model">language.center.class.schedule</field>
+        <field name="arch" type="xml">
+            <calendar string="Lịch học" date_start="date" color="course_id" mode="month">
+                <field name="name"/>
+                <field name="course_id"/>
+                <field name="room"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_language_center_class_schedule_search" model="ir.ui.view">
+        <field name="name">language.center.class.schedule.search</field>
+        <field name="model">language.center.class.schedule</field>
+        <field name="arch" type="xml">
+            <search string="Lịch học">
+                <field name="name" string="Lịch học"/>
+                <field name="course_id"/>
+                <field name="date"/>
+                <field name="room"/>
+                <separator/>
+                <filter string="Lên kế hoạch" name="planned" domain="[('state','=','planned')]"/>
+                <filter string="Đang diễn ra" name="in_progress" domain="[('state','=','in_progress')]"/>
+                <filter string="Hoàn thành" name="done" domain="[('state','=','done')]"/>
+                <filter string="Đã hủy" name="cancel" domain="[('state','=','cancel')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Khóa học" name="course_id" context="{'group_by':'course_id'}"/>
+                    <filter string="Trạng thái" name="state" context="{'group_by':'state'}"/>
+                    <filter string="Ngày" name="date" context="{'group_by':'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_language_center_class_schedule" model="ir.actions.act_window">
+        <field name="name">Lịch học</field>
+        <field name="res_model">language.center.class.schedule</field>
+        <field name="view_mode">list,form,calendar</field>
+        <field name="context">{'search_default_planned': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo lịch học mới
+            </p>
+        </field>
+    </record>
+</odoo> 
